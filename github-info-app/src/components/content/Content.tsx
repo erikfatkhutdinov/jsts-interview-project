@@ -1,10 +1,13 @@
 import React from "react";
 
-const Content = (props: any) => {
+const Content = (props: object) => {
 
 
   return (
-    <div></div>
+    <div>
+      <RepositoriesContainer />
+      <UserInfoContainer />
+    </div>
   )
 }
 

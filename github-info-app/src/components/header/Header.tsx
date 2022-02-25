@@ -4,7 +4,9 @@ const Header = (props: any) => {
 
 
   return (
-    <div></div>
+    <div>
+      <input />
+    </div>
   )
 }
 
