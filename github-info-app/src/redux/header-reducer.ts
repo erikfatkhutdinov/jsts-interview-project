@@ -12,7 +12,6 @@ const initialState: State = {
 }
 
 const headerReducer = (state: object = initialState, action: any) => {
-
       switch (action.type) {
             case SEARCH_USER:
                   return {
@@ -20,7 +19,6 @@ const headerReducer = (state: object = initialState, action: any) => {
                         userName: action.userName
                   }
             case UPDATE_INPUT_TEXT:
-                  debugger
                   return {
                         ...state,
                         inputText: action.inputText

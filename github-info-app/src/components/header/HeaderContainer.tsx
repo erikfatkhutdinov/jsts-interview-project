@@ -14,14 +14,9 @@ const mapStateToProps = (state: any) => ({
   inputText: state.header.inputText
 })
 
-const mapDispatchToProps = () => ({
-  searchUser,
-  updateInputText
-})
 
 export default compose (
-  connect (mapStateToProps, mapDispatchToProps),
-
+  connect (mapStateToProps, {updateInputText, searchUser}),
 ) (HeaderContainer)
 
 

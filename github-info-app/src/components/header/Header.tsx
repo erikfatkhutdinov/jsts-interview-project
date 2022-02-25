@@ -14,7 +14,6 @@ const useStyles = makeStyles({
   },
 })
 
-
 const Header = (props: any) => {
 
   const styles = useStyles()
@@ -23,7 +22,6 @@ const Header = (props: any) => {
 
   const updateInputText = () => {
     const text: string = inputValue.current.value
-    debugger
     props.updateInputText(text)
   }
 
