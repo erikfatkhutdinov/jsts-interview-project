@@ -3,10 +3,10 @@ const initialState = {
 
 }
 
-const UserInfoReducer = (state:object = initialState, action:object) => {
+const userInfoReducer = (state:object = initialState, action:object) => {
 
   return state
 
 }
 
-export default UserInfoReducer
+export default userInfoReducer

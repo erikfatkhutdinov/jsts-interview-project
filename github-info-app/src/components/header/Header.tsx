@@ -1,5 +1,6 @@
 import React from "react";
 import {makeStyles, styled} from "@material-ui/styles";
+import SearchButton from "../button/SearchButton";
 
 const useStyles = makeStyles({
   inputWrapper: {
@@ -11,35 +12,25 @@ const useStyles = makeStyles({
     fontSize: '20px',
     marginRight: '10px'
   },
-  searchButton: {
-    backgroundColor: '#222',
-    borderRadius: '4px',
-    borderStyle: 'none',
-    boxSizing: 'border-box',
-    color: '#fff',
-    cursor: 'pointer',
-    display: 'inline-block',
-    fontFamily: ' "Farfetch Basis","Helvetica Neue",Arial,sans-serif',
-    fontSize: '20px',
-    margin: '0',
-    outline: 'none',
-    textAlign: 'center',
-    textTransform: 'none',
-    padding: '3px 10px',
-}
-
-
 })
 
 
 const Header = (props: any) => {
 
-const styles = useStyles()
+  const styles = useStyles()
+
+  const inputValue: any = React.createRef()
+
+  const updateInputText = () => {
+    const text: string = inputValue.current.value
+    debugger
+    props.updateInputText(text)
+  }
 
   return (
     <div className={styles.inputWrapper}>
-      <input className={styles.input} />
-      <button className={styles.searchButton}>search</button>
+      <input onChange={updateInputText} value={props.inputText} ref={inputValue} className={styles.input} />
+      <SearchButton onButtonClick={props.search} />
     </div>
   )
 }

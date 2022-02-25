@@ -3,10 +3,10 @@ const initialState = {
 
 }
 
-const UserRepositoriesReducer = (state:object = initialState, action:object) => {
+const userRepositoriesReducer = (state:object = initialState, action:object) => {
 
   return state
 
 }
 
-export default UserRepositoriesReducer
+export default userRepositoriesReducer
