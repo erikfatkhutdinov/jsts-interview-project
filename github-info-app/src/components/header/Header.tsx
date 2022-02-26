@@ -25,10 +25,21 @@ const Header = (props: any) => {
     props.updateInputText(text)
   }
 
+  const searchUser = () => {
+    if (!props.inputText) return
+    props.searchUser(props.inputText)
+  }
+
+  const onEnter = (e: any) => {
+    if (!props.inputText || e.key !== 'Enter') return
+    props.searchUser(props.inputText)
+  }
+
+
   return (
     <div className={styles.inputWrapper}>
-      <input onChange={updateInputText} value={props.inputText} ref={inputValue} className={styles.input} />
-      <SearchButton onButtonClick={props.search} />
+      <input onChange={updateInputText} onKeyDown={onEnter} value={props.inputText} ref={inputValue} className={styles.input} />
+      <SearchButton onButtonClick={searchUser} />
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import {getRepos, getUserData} from "../api/github-api";
+
 const SEARCH_USER = 'SEARCH_USER'
 const UPDATE_INPUT_TEXT = 'UPDATE_INPUT_TEXT'
 
@@ -31,5 +33,17 @@ const headerReducer = (state: object = initialState, action: any) => {
 
 export default headerReducer
 
-export const searchUser = (userName: string) => ({type: SEARCH_USER, userName})
+export const setUserData = (data: string) => ({type: SEARCH_USER, data})
 export const updateInputText = (inputText: string) => ({type: UPDATE_INPUT_TEXT, inputText})
+
+export const searchUser = (userName: string) => {
+      return (dispatch: any) => {
+            getRepos(userName).then(data => {
+                  console.log(data)
+            })
+
+            getUserData(userName).then(data => {
+                  console.log(data)
+            })
+      }
+}

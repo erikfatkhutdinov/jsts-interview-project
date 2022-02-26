@@ -7,7 +7,6 @@ const useStyles = makeStyles({
   contentWrapper: {
     display: 'grid',
     gridTemplateColumns: '6fr 4fr',
-    height: '90vh',
     margin: '0px 20px',
     columnGap: '15px'
   }
