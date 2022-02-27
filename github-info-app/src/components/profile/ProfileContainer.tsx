@@ -9,7 +9,7 @@ const ProfileContainer = (props: any) => {
 }
 
 const mapStateToProps = (state: any) => {
-  const user = state.header.userData
+  const user = state.userInfo.userData
   return {
     login: user.login,
     avatar_url: user.avatar_url,

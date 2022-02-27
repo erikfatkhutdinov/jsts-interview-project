@@ -10,7 +10,7 @@ const Profile = (props: any) => {
 
   return (
     <div>
-       <Avatar height={'100px'} url={props.avatar_url} />
+       <Avatar height={'200px'} url={props.avatar_url} />
     </div>
   )
 }

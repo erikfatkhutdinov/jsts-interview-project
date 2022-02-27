@@ -8,14 +8,14 @@ import Container from "../Container/Container";
 const ContentContainer = (props: any) => {
 
   const makeContent = () => {
-    return props.isFetching === true ? <Preloader /> : <Content {...props} />
+    return props.isFetching ? <Preloader /> : <Content {...props} />
   }
 
   return <Container component={() => makeContent()}/>
 }
 
 const mapStateToProps = (state: any) => ({
-  isFetching: state.header.isFetchingRepos && state.header.isFetchingData
+  isFetching: state.userRepositories.isFetchingRepos && state.userInfo.isFetchingData
 })
 
 
