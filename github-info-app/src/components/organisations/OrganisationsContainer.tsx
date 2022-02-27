@@ -1,12 +1,12 @@
 import React from "react";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import UserInfo from "./UserInfo";
+import Organisations from "./Organisations";
 
-const UserInfoContainer = () => {
+const OrganisationsContainer = () => {
 
 
-  return <UserInfo />
+  return <Organisations />
 }
 
 const mapStateToProps = () => ({
@@ -20,4 +20,4 @@ const mapDispatchToProps = () => ({
 export default compose (
   connect (mapStateToProps, mapDispatchToProps),
 
-) (UserInfoContainer)
+) (OrganisationsContainer)

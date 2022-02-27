@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   }
 })
 
-const UserInfo = (props: object) => {
+const Organisations = (props: object) => {
 
   const styles = useStyles()
 
@@ -21,4 +21,4 @@ const UserInfo = (props: object) => {
   )
 }
 
-export default UserInfo
+export default Organisations

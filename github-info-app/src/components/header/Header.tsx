@@ -4,7 +4,8 @@ import SearchButton from "../button/SearchButton";
 
 const useStyles = makeStyles({
   inputWrapper: {
-    padding: '20px',
+    padding: '20px 0px',
+    textAlign: 'center'
   },
   input: {
     width: '500px',
@@ -38,8 +39,11 @@ const Header = (props: any) => {
 
   return (
     <div className={styles.inputWrapper}>
-      <input onChange={updateInputText} onKeyDown={onEnter} value={props.inputText} ref={inputValue} className={styles.input} />
-      <SearchButton onButtonClick={searchUser} />
+
+        <input onChange={updateInputText} onKeyDown={onEnter} value={props.inputText} ref={inputValue} className={styles.input} />
+        <SearchButton onButtonClick={searchUser} />
+
+
     </div>
   )
 }
