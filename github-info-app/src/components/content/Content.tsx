@@ -3,6 +3,7 @@ import RepositoriesContainer from "../repositories/RepositoriesContainer";
 import OrganisationsContainer from '../organisations/OrganisationsContainer'
 import {makeStyles} from "@material-ui/styles";
 import ProfileContainer from "../profile/ProfileContainer";
+import UserNotFoundErrorContainer from "../error-page/UserNotFoundErrorContainer";
 
 const useStyles = makeStyles({
   contentWrapper: {
@@ -15,15 +16,18 @@ const useStyles = makeStyles({
 const Content = (props: any) => {
 
   const styles = useStyles()
-    return (
-          <>
-            <ProfileContainer />
-            <div className={styles.contentWrapper}>
-              <RepositoriesContainer />
-              <OrganisationsContainer />
-            </div>
-          </>
-    )
+
+  if (props.userDataErrorCode !== 0) return <UserNotFoundErrorContainer />
+
+  return !props.userData.login ? <></> : (
+        <>
+          <ProfileContainer />
+          <div className={styles.contentWrapper}>
+            <RepositoriesContainer />
+            <OrganisationsContainer />
+          </div>
+        </>
+  )
 
 
 

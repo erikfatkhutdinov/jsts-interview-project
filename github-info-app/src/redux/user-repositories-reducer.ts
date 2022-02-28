@@ -35,12 +35,14 @@ export const toggleIsFetchingRepos = (isFetching: boolean) => ({type: TOGGLE_IS_
 
 export const getUserRepos = (userName: string) => {
   return (dispatch: any) => {
-      dispatch (toggleIsFetchingRepos(true))
+     /* dispatch (toggleIsFetchingRepos(true))
 
       getRepos(userName).then(data => {
         console.log(data)
         //dispatch(setUserRepos(data))
         dispatch (toggleIsFetchingRepos(false))
       })
+
+      */
   }
 }

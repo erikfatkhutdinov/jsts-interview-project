@@ -1,9 +1,17 @@
 import React from 'react'
+import {compose} from "redux";
+import {connect} from "react-redux";
+import UserNotFoundError from "./UserNotFoundError";
 
-const UserNotFoundError = () => {
-  return (
-    <div></div>
-  )
+const UserNotFoundErrorContainer = (props: any) => {
+  return <UserNotFoundError {...props} />
 }
 
-export default UserNotFoundError
+const mapStateToProps = (state: any) => ({
+  userDataErrorCode: state.userInfo.errorCode,
+  userName: state.header.userName
+})
+
+export default compose (
+  connect (mapStateToProps, {}),
+) (UserNotFoundErrorContainer)

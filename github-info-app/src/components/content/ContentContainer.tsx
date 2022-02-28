@@ -15,7 +15,9 @@ const ContentContainer = (props: any) => {
 }
 
 const mapStateToProps = (state: any) => ({
-  isFetching: state.userRepositories.isFetchingRepos && state.userInfo.isFetchingData
+  isFetching: state.userRepositories.isFetchingRepos && state.userInfo.isFetchingData,
+  userData: state.userInfo.userData,
+  userDataErrorCode: state.userInfo.errorCode,
 })
 
 

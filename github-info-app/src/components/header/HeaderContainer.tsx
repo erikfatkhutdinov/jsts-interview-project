@@ -6,6 +6,11 @@ import {searchUser, updateInputText} from "../../redux/header-reducer";
 
 const HeaderContainer = (props: any) => {
 
+  const catchAllUnhundledErrors = (promiseRejectionEvent: any) => {
+    console.log('Error')
+  }
+
+  window.addEventListener('unhundledrejection', catchAllUnhundledErrors)
 
   return <Header {...props} />
 }
