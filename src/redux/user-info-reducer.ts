@@ -68,11 +68,6 @@ export const getData = (userName: string) => async (dispatch: any) => {
           const user: any = response.user
           const orgs: any = response.orgs
 
-          console.log(user)
-          console.log(orgs)
-
-          
-
           dispatch(setUserData(
             user.login,
             user.avatar_url,

@@ -12,6 +12,7 @@ const Organisations = (props: object) => {
 
   return (
     <div className={styles.userInfoWrapper}>
+      Organisations
     </div>
   )
 }

@@ -4,7 +4,6 @@ import {makeStyles} from "@material-ui/styles";
 const useStyles = makeStyles({
   repositoriesWrapper: {
   },
-  reposButton: {},
   reposContent: {}
 })
 
@@ -14,8 +13,7 @@ const Repositories = (props: object) => {
 
   return (
     <div className={styles.repositoriesWrapper}>
-      <div className={styles.reposButton}>Repositories</div>
-      <div className={styles.reposContent}>Content</div>
+      <div className={styles.reposContent}>Repositories</div>
     </div>
   )
 }

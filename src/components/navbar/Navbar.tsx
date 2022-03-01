@@ -43,8 +43,8 @@ const Navbar = (props: any) => {
   const styles = useStyles()
 
   const navbarItems = [
-    {path: '/repos', buttonName: 'Repositories'},
-    {path: '/orgs', buttonName: 'Organisations'},
+    {path: '/repos', buttonName: 'Repositories', id: 'repos'},
+    {path: '/orgs', buttonName: 'Organisations', id: 'orgs'},
   ]
 
   
@@ -53,8 +53,9 @@ const Navbar = (props: any) => {
   .map((item, i) => {
     const path = `/${props.userName}${item.path}`
 
+    
     return (
-    <div key={i} className={styles.navbarItem}>
+    <div onClick={() => props.setActiveButton(item.id)} key={i} className={styles.navbarItem}>
       <NavLink 
       className={
         (navData) => navData.isActive 

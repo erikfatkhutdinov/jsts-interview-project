@@ -5,6 +5,7 @@ import {useLocation} from "react-router-dom";
 import Header from "./Header";
 import {searchUser, updateInputText, setUserName} from "../../redux/header-reducer";
 
+
 const HeaderContainer = (props: any) => {
 
 
@@ -28,7 +29,7 @@ const mapStateToProps = (state: any) => ({
 
 
 export default compose (
-  connect (mapStateToProps, {updateInputText, searchUser, setUserName}),
+  connect (mapStateToProps, {updateInputText, searchUser, setUserName})
 ) (HeaderContainer)
 
 
