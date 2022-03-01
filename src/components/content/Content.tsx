@@ -4,7 +4,7 @@ import OrganisationsContainer from '../organisations/OrganisationsContainer'
 import {makeStyles} from "@material-ui/styles";
 import ProfileContainer from "../profile/ProfileContainer";
 import UserNotFoundErrorContainer from "../error-page/UserNotFoundErrorContainer";
-import NavbarContainer from "../../navbar/NavbarContainer";
+import NavbarContainer from "../navbar/NavbarContainer";
 
 const useStyles = makeStyles({
   contentWrapper: {
