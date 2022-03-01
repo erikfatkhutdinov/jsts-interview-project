@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RepositoriesContainer from "../repositories/RepositoriesContainer";
-import OrganisationsContainer from '../organisations/OrganisationsContainer'
+import OrganizationsContainer from '../organisations/OrganizationsContainer'
 import {makeStyles} from "@material-ui/styles";
 import ProfileContainer from "../profile/ProfileContainer";
 import NavbarContainer from "../navbar/NavbarContainer";
@@ -23,7 +23,7 @@ const Content = (props: any) => {
 
   const contentPages = [
     {component: <RepositoriesContainer />, id: 'repos'},
-    {component: <OrganisationsContainer />, id: 'orgs'},
+    {component: <OrganizationsContainer />, id: 'orgs'},
   ]
 
 

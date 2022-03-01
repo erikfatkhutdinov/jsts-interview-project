@@ -43,7 +43,7 @@ const Profile = (props: any) => {
 
   const styles = useStyles()
 
-  const additionalInfo = props.additionalInfo.map((item: any, i: number): ReactNode => {
+  const additionalInfo = props.additionalInfo.map((item: any, i: number) => {
     const userInfoItem: any = Object.values(item.data)[0]
     if (userInfoItem) {
       return (
@@ -53,12 +53,13 @@ const Profile = (props: any) => {
         </div>
       )
     }
+    return <></>
   })
 
   return (
     <div className={styles.profile}>
       <div className={styles.avatar}>
-        <Avatar height={'200px'} url={props.avatar_url} />
+        <Avatar radius={'200px'} url={props.avatar_url} />
         <div className={styles.login}>{props.login}</div>
       </div>
 

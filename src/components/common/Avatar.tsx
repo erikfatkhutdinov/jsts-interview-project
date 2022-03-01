@@ -14,8 +14,8 @@ const useStyles = makeStyles({
 const Avatar = (props: any) => {
   const propsStyles = {
     backgroundImage: `url(${props.url})`,
-    height: props.height,
-    width: props.height
+    height: props.radius,
+    width: props.radius
   }
 
   const styles = useStyles()

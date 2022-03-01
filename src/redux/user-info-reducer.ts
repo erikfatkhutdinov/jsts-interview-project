@@ -3,18 +3,29 @@ import {getUserData} from "../api/github-api";
 const SET_USER_DATA = 'SET_USER_DATA'
 const TOGGLE_IS_FETCHING_DATA = 'TOGGLE_IS_FETCHING_DATA'
 const SET_ERROR_CODE = 'SET_ERROR_CODE'
+const SET_USER_ORGS = 'SET_USER_ORGS'
 
 interface State {
   userData: object
   isFetchingData: boolean
   errorCode: number
+  orgsData: object
 }
 
 const initialState: State = {
   userData: {},
   isFetchingData: false,
-  errorCode: 0
-}
+  errorCode: 0,
+  orgsData: [
+    {
+      avatar_url: '',
+      description: '',
+      login: '',
+      url: ''
+    }
+  ]
+  }
+
 
 const userInfoReducer = (state: object = initialState, action: any) => {
   switch (action.type) {
@@ -24,6 +35,8 @@ const userInfoReducer = (state: object = initialState, action: any) => {
       return {...state, isFetchingData: action.isFetching}
     case SET_ERROR_CODE:
       return {...state, errorCode : action.errorCode}
+    case SET_USER_ORGS:
+      return {...state, orgsData: action.orgs}
 
     default:
       return state
@@ -44,11 +57,25 @@ export const setUserData = (
   bio: string | null,
   twitter_username: string | null,
   html_url: string
-) => ({type: SET_USER_DATA,
+): object => ({type: SET_USER_DATA,
   data: {
     login, avatar_url, name, created_at, blog, company, location, email, bio, twitter_username, html_url
   }
 })
+
+
+export const setUserOrgs = (orgs: object): object => ({type: SET_USER_ORGS, orgs})
+
+
+const getOrgsInfo = (orgs: any) => orgs.map((item: any) => {
+  return {
+    login: item.login,
+    description: item.description,
+    avatar_url: item.avatar_url,
+    url: item.url
+  }
+})
+
 
 export const toggleIsFetchingData = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING_DATA, isFetching})
 export const setErrorCode = (errorCode: number) => ({type: SET_ERROR_CODE, errorCode})
@@ -56,8 +83,6 @@ export const setErrorCode = (errorCode: number) => ({type: SET_ERROR_CODE, error
 
 export const getData = (userName: string) => async (dispatch: any) => {
     dispatch (toggleIsFetchingData(true))
-
-
     try {
       const response = await getUserData(userName)
 
@@ -66,7 +91,7 @@ export const getData = (userName: string) => async (dispatch: any) => {
           dispatch(setErrorCode(0))
 
           const user: any = response.user
-          const orgs: any = response.orgs
+          const orgs: object = response.orgs
 
           dispatch(setUserData(
             user.login,
@@ -81,6 +106,8 @@ export const getData = (userName: string) => async (dispatch: any) => {
             user.twitter_username,
             user.html_url
           ))
+
+          dispatch(setUserOrgs(getOrgsInfo(orgs)))
 
 
           dispatch (toggleIsFetchingData(false))
