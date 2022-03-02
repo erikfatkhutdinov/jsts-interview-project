@@ -13,7 +13,9 @@ interface State {
 }
 
 const initialState: State = {
-  userData: {},
+  userData: {
+    login: 'xfatkh0'
+  },
   isFetchingData: false,
   errorCode: 0,
   orgsData: [

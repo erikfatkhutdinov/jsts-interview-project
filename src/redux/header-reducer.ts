@@ -13,7 +13,7 @@ interface State {
 
 const initialState: State = {
       inputText: '',
-      userName: ''
+      userName: 'fatkh0'
 }
 
 const headerReducer = (state: object = initialState, action: any) => {
@@ -40,6 +40,7 @@ export const searchUser = (userName: string) => {
             dispatch(setUserName(userName))
             dispatch(getData(userName))
             dispatch(getUserRepos(userName))
+            dispatch(updateInputText(''))
       }
 
 }

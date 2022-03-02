@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {useLocation} from "react-router-dom";
@@ -11,19 +11,20 @@ const HeaderContainer = (props: any) => {
 
   const location = useLocation()
 
-/*
-  const catchAllUnhundledErrors = (promiseRejectionEvent: any) => {
-    console.log('Error')
-  }
-  window.addEventListener('unhundledrejection', catchAllUnhundledErrors)
-  */
+  const path = location.pathname.slice(1).split('/')
 
-  return <Header {...props} path={location.pathname} />
+
+  if (props.userInfo) {
+  }
+
+
+  return <Header {...props} path={path} />
 }
 
 const mapStateToProps = (state: any) => ({
   inputText: state.header.inputText,
-  userName: state.header.userName
+  userName: state.header.userName,
+  userInfo: state.userInfo.userData.login
 })
 
 

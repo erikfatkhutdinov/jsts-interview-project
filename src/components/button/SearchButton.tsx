@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     margin: '0',
     outline: 'none',
     textAlign: 'center',
-    textTransform: 'none'
+    textTransform: 'none',
+    padding: '3px'
   },
   navlinkSlyles: {
     textDecoration: 'none',
@@ -29,6 +30,7 @@ const SearchButton = (props: any) => {
   const styles = useStyles()
   const path = `/${props.userName}`
 
+ 
   return (
     <button onClick={props.onButtonClick} className={styles.searchButton}>
       <NavLink to={path} 

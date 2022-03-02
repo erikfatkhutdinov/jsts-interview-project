@@ -3,14 +3,15 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import Repositories from "./Repositories";
 
-const RepositoriesContainer = () => {
+const RepositoriesContainer = (props: any) => {
 
+  console.log(props.repos)
 
-  return <Repositories />
+  return <Repositories {...props} />
 }
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = (state: any) => ({
+  repos: state.userRepos.repos
 })
 
 const mapDispatchToProps = () => ({

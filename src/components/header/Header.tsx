@@ -22,7 +22,7 @@ const Header = (props: any) => {
   const styles = useStyles()
 
   if (props.path && !props.userName) {
-    //props.searchUser(props.path)
+    props.searchUser(props.path)
   }
 
   const inputValue: any = React.createRef()
