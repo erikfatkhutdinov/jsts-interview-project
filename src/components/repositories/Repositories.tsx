@@ -11,7 +11,6 @@ const useStyles = makeStyles({
 const Repositories = (props: any) => {
 
   const styles = useStyles()
-
   debugger
 
    /* [
@@ -25,7 +24,7 @@ const Repositories = (props: any) => {
     description
   }
   ]
-  */ 
+  
 
 
   
@@ -42,10 +41,10 @@ const Repositories = (props: any) => {
      repDescription={item.repDescription}
      key={i} />
   })
-  
+  */
 
   return (
-    <div className={styles.repositoriesWrapper}>{makeRepositories}</div>
+    <div className={styles.repositoriesWrapper}>Repos</div>
   )
 }
 

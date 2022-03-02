@@ -9,26 +9,14 @@ interface State {
 }
 
 const initialState: State = {
-  repos: [
-    {
-    name: '' ,
-    created_at: '',
-    default_branch: '',
-    html_url: '',
-    language:  '',
-    visibility: '',
-    licence: '',
-    update_at: '',
-    description: ''
-    }
-  ],
+  repos: [],
   isFetchingRepos: false
 }
 
 const userReposReducer = (state: object = initialState, action: any) => {
   switch (action.type) {
     case SET_USER_REPOS:
-      return {...state, userRepos: action.repos}
+      return {...state, repos: action.repos}
     case TOGGLE_IS_FETCHING_REPOS:
       return {...state, isFetchingRepos: action.isFetching}
 
@@ -64,6 +52,8 @@ export const getUserRepos = (userName: string) => async (dispatch: any) => {
     const response = await getRepos(userName)
 
     if (response.length) {
+
+    
       
 
       //console.log(getOrgsInfo(response))
