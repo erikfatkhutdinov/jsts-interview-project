@@ -13,25 +13,13 @@ const RepositoriesContainer = (props: any) => {
     visibility: item.visibility,
     pushedAt: item.pushed_at,
     license: item.license,
-    default_branch: item.default_branch,
     language: item.language
   }))
-  /* [
-    {
-    reposInfo: [
-      description,
-      data,
-    ]
-    name,
-    visibility
-    description
-  }
-  ]
-  */ 
+  
 
   console.log(props.repos)
 
-  return <Repositories {...repos} />
+  return <Repositories repos={repos} />
 }
 
 const mapStateToProps = (state: any) => ({

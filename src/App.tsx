@@ -8,7 +8,6 @@ const useStyles = makeStyles({
   app: {
     background: '#f5f8fa',
     width: '100%',
-    height: '100vh',
     fontFamily: ' "Farfetch Basis","Helvetica Neue",Arial,sans-serif',
   }
 })

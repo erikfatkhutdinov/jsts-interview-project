@@ -1,45 +1,69 @@
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
-import { isPropertySignature } from "typescript";
 
 const useStyles = makeStyles({
   repositoryWrapper: {
-
+    padding: '10px',
+    border: '1px solid #ccc',
+    borderRadius: '10px',
+    marginBottom: '10px',
+    "&:hover": {
+      backgroundColor: '#222',
+      color: '#fff',
+      '& $visibility': {
+        border: '1px solid #fff',
+      },
+    }
   },
-  name: {},
-  reposHeader: {},
-  visibility: {},
+  name: {
+    fontSize: '20px',
+    marginRight: '15px'
+  },
+  reposHeader: {
+    display: 'flex',
+    marginBottom: '15px',
+    alignItems: 'center'
+  },
+  visibility: {
+    padding: '3px 15px',
+    border: '1px solid #222',
+    borderRadius: '15px'
+  },
   description: {},
-  reposInfoWrapper: {},
+  reposInfoWrapper: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   reposInfo: {},
   reposInfoDescription: {},
-  reposInfoData: {}
+  reposInfoData: {
+    marginRight: '15px'
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#222',
+  }
 })
 
 const Repository = (props: any) => {
 
   const styles = useStyles()
 
-
-  const makeReposInfo = props.reposInfo.map((item: any, i: number) => (
-    <div key={i} className={styles.reposInfoWrapper}>
-      <div className={styles.reposInfoDescription}>reposInfoDescription</div>
-      <div className={styles.reposInfoData}>{item.data}</div>
-    </div>
-  ))
+  const repInfo = [props.language, props.lecense, props.updated]
 
   return (
-    <div className={styles.repositoryWrapper}>
-      <div className={styles.reposHeader}>
-        <div className={styles.name}>name</div>
-        <div className={styles.visibility}>visibility</div>
+    <a className={styles.link} target="_blank" rel="noreferrer" href={props.url}>
+      <div  className={styles.repositoryWrapper}>
+        <div className={styles.reposHeader}>
+          <div className={styles.name}>{props.name}</div>
+          <div className={styles.visibility}>{props.visibility}</div>
+        </div>
+        <div className={styles.reposInfoWrapper}>
+          {repInfo.map((item, i) => item ? <div className={styles.reposInfoData}>{item}</div> : null)}
+        </div>
+        
       </div>
-      <div className={styles.description}>repDescription</div>
-      <div className={styles.reposInfoWrapper}>
-        {makeReposInfo()}
-      </div>
-      
-    </div>
+    </a>
   )
 }
 

@@ -5,11 +5,11 @@ import {makeStyles} from "@material-ui/styles";
 const useStyles = makeStyles({
   profile: {
     display: 'flex',
-    marginBottom: '30px',
+    marginBottom: '45px',
   },
   avatar: {
     textAlign: 'center',
-    marginRight: '20px'
+    marginRight: '16px'
   },
   info: {
 
@@ -28,7 +28,8 @@ const useStyles = makeStyles({
   },
   description: {
     color: '#aaa',
-    marginRight: '10px'
+    marginRight: '10px',
+    fontSize: '15px'
   },
   userInfo: {
     fontSize: '20px'

@@ -11,40 +11,25 @@ const useStyles = makeStyles({
 const Repositories = (props: any) => {
 
   const styles = useStyles()
-  debugger
 
-   /* [
-    {
-    reposInfo: [
-      description,
-      data,
-    ]
-    name,
-    visibility
-    description
-  }
-  ]
-  
-
-
-  
   const makeRepositories = props.repos.map((item: any, i:number) => {
-    const reposInfo = [
-      item.reposInfoDescription,
-      item.reposInfoData
-    ]
+   
+
+    const updated = item.pushedAt
 
     return <Repository
-     reposInfo={reposInfo} 
-     name={item.name}
-     visibility={item.visibility}
-     repDescription={item.repDescription}
-     key={i} />
+      language={item?.language}
+      lecense={item.license?.name}
+      url={item.url}
+      name={item.name}
+      updated={updated}
+      visibility={item.visibility}
+      key={i} />
   })
-  */
+  
 
   return (
-    <div className={styles.repositoriesWrapper}>Repos</div>
+    <div className={styles.repositoriesWrapper}>{makeRepositories}</div>
   )
 }
 
