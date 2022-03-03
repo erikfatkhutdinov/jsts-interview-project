@@ -1,6 +1,7 @@
 import React from "react";
 import {makeStyles} from "@material-ui/styles";
 import SearchButton from "../button/SearchButton";
+import { Navigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   inputWrapper: {
@@ -21,29 +22,32 @@ const useStyles = makeStyles({
 const Header = (props: any) => {
   const styles = useStyles()
 
-  if (props.path && !props.userName) {
-    props.searchUser(props.path)
-  }
-
   const inputValue: any = React.createRef()
-
-  
 
   const updateInputText = () => {
     const text: string = inputValue.current.value
     props.updateInputText(text)
   }
 
-  const onButtonClick = () => {
-    if (!props.inputText) return
+  const onButtonClick = (e: any) => {
+    if (!props.inputText) {
+      e.preventDefault()
+      return
+    }
     props.searchUser(props.inputText)
   }
-  
 
+  const onKeyDown = (e: any) => {
+    if (e.key === 'Enter') {
+      props.navigate(`/${props.inputText}`)
+      props.searchUser(props.inputText)
+    }
+  }
+  
   return (
     <div className={styles.inputWrapper}>
-
         <input
+          onKeyDown={onKeyDown}
           autoFocus={true}
           onChange={updateInputText}
           value={props.inputText}
@@ -51,7 +55,7 @@ const Header = (props: any) => {
           className={styles.input}
           placeholder={'username'}
         />
-        <SearchButton userName={props.userName} onButtonClick={onButtonClick} />
+        <SearchButton userName={props.inputText} onButtonClick={onButtonClick} />
 
 
     </div>

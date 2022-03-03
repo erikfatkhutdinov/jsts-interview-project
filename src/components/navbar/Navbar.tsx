@@ -49,26 +49,30 @@ const Navbar = (props: any) => {
 
   
 
-  const makeNavbarItems = navbarItems
-  .map((item, i) => {
-    const path = `/${props.userName}${item.path}`
+  const makeNavbarItems = navbarItems.map((item, i) => {
+      const path = `/${props.userName}${item.path}`
 
-    
-    return (
-    <div onClick={() => props.setActiveButton(item.id)} key={i} className={styles.navbarItem}>
-      <NavLink 
-      className={
-        (navData) => navData.isActive 
-          ? `${styles.navbarStyles} ${styles.active}` 
-          : styles.navbarStyles
-        } 
-      to={path}
-      >
-        <span className={styles.navlinkInner}>{item.buttonName}</span></NavLink>
-    </div>
-  )
-  }
-  )
+      const setActiveButton = () => {
+        props.setActiveButton(item.id)
+      }
+
+      return (
+      <div key={i} className={styles.navbarItem}>
+        <NavLink 
+        onClick={setActiveButton}
+        className={
+          (navData) => navData.isActive 
+            ? `${styles.navbarStyles} ${styles.active}` 
+            : styles.navbarStyles
+          } 
+        to={path}
+        >
+          <span className={styles.navlinkInner}>{item.buttonName}</span></NavLink>
+      </div>
+    )
+    })
+
+
  
   return (
     <div className={styles.navbar}>

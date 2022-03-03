@@ -4,9 +4,6 @@ import {connect} from "react-redux";
 import Navbar from './Navbar'
 
 const NavbarContainer = (props: any) => {
-
-  
-
   return <Navbar {...props} />
 }
 

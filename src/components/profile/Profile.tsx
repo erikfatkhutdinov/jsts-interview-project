@@ -49,12 +49,12 @@ const Profile = (props: any) => {
     if (userInfoItem) {
       return (
         <div key={i} className={styles.additionalInfoItem}>
-          <span className={styles.description}>{item.description}:</span>
-          <span className={styles.userInfo}>{userInfoItem}</span>
+          <span className={styles.description}>{props.description}:</span>
+          <span className={styles.userInfo}>{props.userInfoItem}</span>
         </div>
       )
     }
-    return <></>
+    return null
   })
 
   return (
@@ -78,7 +78,11 @@ const Profile = (props: any) => {
 
         <div className={styles.additionalInfoItem}>
           <span className={styles.description}>github</span>
-          <a href={props.html_url} target="_blank" rel="noreferrer" className={`${styles.linkToGithub} ${styles.userInfo}`}>{props.html_url}</a>
+          <a href={props.html_url} 
+            target="_blank" 
+            rel="noreferrer" 
+            className={`${styles.linkToGithub} ${styles.userInfo}`}
+            >{props.html_url}</a>
         </div>
       </div>
 

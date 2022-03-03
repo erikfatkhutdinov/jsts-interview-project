@@ -30,13 +30,17 @@ const SearchButton = (props: any) => {
   const styles = useStyles()
   const path = `/${props.userName}`
 
- 
+
+  
   return (
-    <button onClick={props.onButtonClick} className={styles.searchButton}>
-      <NavLink to={path} 
-      className={styles.navlinkSlyles}
-      > search </NavLink>
+    <button className={styles.searchButton}>
+       <NavLink 
+        onClick={props.onButtonClick}
+        to={path} 
+        className={styles.navlinkSlyles}
+       >search</NavLink>
     </button>
+  
   ) 
 }
 

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import RepositoriesContainer from "../repositories/RepositoriesContainer";
 import OrganizationsContainer from '../organisations/OrganizationsContainer'
 import {makeStyles} from "@material-ui/styles";
 import ProfileContainer from "../profile/ProfileContainer";
 import NavbarContainer from "../navbar/NavbarContainer";
+import { Route, Routes } from "react-router-dom";
 
 const useStyles = makeStyles({
   contentWrapper: {
@@ -11,35 +12,40 @@ const useStyles = makeStyles({
   contentInner: {
     width: '100%',
     borderTop: '1px solid #ccc',
-    paddingTop: '20px'
+    padding: '20px 0'
   }
 })
 
 const Content = (props: any) => {
-
-  const [activeButton, setActiveButton] = useState('');
-
   const styles = useStyles()
 
-  const contentPages = [
-    {component: <RepositoriesContainer />, id: 'repos'},
-    {component: <OrganizationsContainer />, id: 'orgs'},
+  const pagesArray = [
+    {component: <RepositoriesContainer />, path: `/${props.userName}/repos`},
+    {component: <OrganizationsContainer />, path: `/${props.userName}/orgs`},
   ]
 
+  const makeContent = () => pagesArray.map((item, i) => (
+    <Route key={i} path={`${item.path}`} element={item.component} />
+  ))
 
+  
   return !props.isUserFound ? <></> : (
-        <>
-          <ProfileContainer />
-          <div className={styles.contentWrapper}>
-            <div>
-              <NavbarContainer setActiveButton={setActiveButton} />
-            </div>
-            <div className={styles.contentInner}>
-              {contentPages.filter(item => item.id === activeButton)[0]?.component}
-            </div>
-            
-          </div>
-        </>
+    <>
+      <ProfileContainer />
+      <div className={styles.contentWrapper}>
+        <div>
+          <NavbarContainer setActiveButton={props.setActiveButton} />
+        </div>
+        <div className={styles.contentInner}>
+          {
+          !props.activeButton ? <></> : 
+            <Routes>
+                {makeContent()}
+            </Routes>
+          }
+        </div>
+      </div>
+    </>
   )
 
 
