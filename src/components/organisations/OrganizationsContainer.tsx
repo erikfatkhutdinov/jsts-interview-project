@@ -5,8 +5,6 @@ import Organizations from "./Organizations";
 
 const OrganizationsContainer = (props: any) => {
 
-  
-
   return <Organizations {...props} />
 }
 
@@ -17,5 +15,4 @@ const mapStateToProps = (state: any) => ({
 
 export default compose (
   connect (mapStateToProps, {}),
-
 ) (OrganizationsContainer)

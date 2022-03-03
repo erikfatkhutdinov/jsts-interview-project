@@ -16,14 +16,7 @@ const initialState: State = {
   userData: {},
   isFetchingData: false,
   errorCode: 0,
-  orgsData: [
-    {
-      avatar_url: '',
-      description: '',
-      login: '',
-      url: ''
-    }
-  ]
+  orgsData: []
   }
 
 
@@ -36,7 +29,7 @@ const userInfoReducer = (state: object = initialState, action: any) => {
     case SET_ERROR_CODE:
       return {...state, errorCode : action.errorCode}
     case SET_USER_ORGS:
-      return {...state, orgsData: action.orgs}
+      return {...state, orgsData: action.orgs }
 
     default:
       return state
@@ -66,15 +59,6 @@ export const setUserData = (
 
 export const setUserOrgs = (orgs: object): object => ({type: SET_USER_ORGS, orgs})
 
-
-const getOrgsInfo = (orgs: any) => orgs.map((item: any) => {
-  return {
-    login: item.login,
-    description: item.description,
-    avatar_url: item.avatar_url,
-    url: item.url
-  }
-})
 
 
 export const toggleIsFetchingData = (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING_DATA, isFetching})
@@ -107,7 +91,7 @@ export const getData = (userName: string) => async (dispatch: any) => {
             user.html_url
           ))
 
-          dispatch(setUserOrgs(getOrgsInfo(orgs)))
+          dispatch(setUserOrgs(orgs))
 
 
           dispatch (toggleIsFetchingData(false))

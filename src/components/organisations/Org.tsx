@@ -19,7 +19,12 @@ const useStyles = makeStyles({
     fontSize: '12px'
   },
   itemData: {
-    fontSize: '16px'
+    fontSize: '16px',
+    color: '#222'
+  },
+  link: {
+    color: '#222',
+    textDecoration: 'none'
   }
 })
 
@@ -28,8 +33,7 @@ const Org = (props: any) => {
 
   const orgInfo = [
     {name: 'login', data: props.login},
-    {name: 'description', data: props.description},
-    {name: 'github', data: props.url},
+    {name: 'description', data: props.description}
   ]
 
   const makeOrgsInfo = () => orgInfo.map((item, i) => (
@@ -46,6 +50,14 @@ const Org = (props: any) => {
       </div>
       <div className={styles.orgInfo}>
         {makeOrgsInfo()}
+        <div className={styles.infoItem}>
+          <span className={styles.itemDescription}>github:</span>
+          <span className={styles.itemData}>
+            <a className={styles.link} target="_blank" rel="noreferrer" href={props.url}>
+              {props.url}
+            </a>
+            </span>
+        </div>
       </div>
     </div>
   )

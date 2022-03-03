@@ -12,22 +12,20 @@ const useStyles = makeStyles({
 })
 
 const Organizations = (props: any) => {
-
   const styles = useStyles()
-
+  
   const makeOrgs = props.orgs.map((item: any, i: number) => (
-    <Org key={i} 
+     <Org key={i} 
       avatarUrl={item.avatar_url} 
       description={item.description} 
       login={item.login} 
-      url={item.url} 
+      url={item.url.replace('api.','')} 
     />
   ))
-
+    
   return (
     <div className={styles.userInfoWrapper}>
       {props.orgs.length ? makeOrgs : <div className={styles.notFound}>Organizations not found</div>}
-      {makeOrgs}
     </div>
   )
 }

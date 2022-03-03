@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/styles";
+import { count } from "console";
 import React from "react";
 
 const useStyles = makeStyles({
@@ -48,8 +49,8 @@ const useStyles = makeStyles({
 const Repository = (props: any) => {
 
   const styles = useStyles()
-
-  const repInfo = [props.language, props.lecense, props.updated]
+  const repInfo = [props.language, props.lecense]
+  const updated = props.updated[0]
 
   return (
     <a className={styles.link} target="_blank" rel="noreferrer" href={props.url}>
@@ -59,9 +60,9 @@ const Repository = (props: any) => {
           <div className={styles.visibility}>{props.visibility}</div>
         </div>
         <div className={styles.reposInfoWrapper}>
-          {repInfo.map((item, i) => item ? <div className={styles.reposInfoData}>{item}</div> : null)}
+          {repInfo.map((item, i) => item ? <div key={i} className={styles.reposInfoData}>{item}</div> : null)}
+          <div className={styles.reposInfoData}>Updated {updated.count} {updated.timeWord} ago</div>
         </div>
-        
       </div>
     </a>
   )

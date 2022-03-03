@@ -5,19 +5,15 @@ import Repositories from "./Repositories";
 
 const RepositoriesContainer = (props: any) => {
 
- 
   const repos = props.repos.map((item: any, i: number) => ({
     id: i,
     name: item.name,
     url: item.html_url,
     visibility: item.visibility,
-    pushedAt: item.pushed_at,
+    pushed_at: item.pushed_at,
     license: item.license,
     language: item.language
   }))
-  
-
-  console.log(props.repos)
 
   return <Repositories repos={repos} />
 }
