@@ -6,10 +6,14 @@ const useStyles = makeStyles({
   orgWrapper: {
     display: 'flex',
     alignItems: 'center',
-    padding: '10px'
+    padding: '10px',
+    marginBottom: '5px'
   },
   avatar: {
-    marginRight: '10px'
+    marginRight: '10px',
+    border: '1px solid #000',
+    borderRadius: '50%',
+    padding: '3px'
   },
   orgInfo: {},
   infoItem: {},
@@ -36,12 +40,16 @@ const Org = (props: any) => {
     {name: 'description', data: props.description}
   ]
 
-  const makeOrgsInfo = () => orgInfo.map((item, i) => (
-      <div key={i} className={styles.infoItem}>
+  const makeOrgsInfo = () => orgInfo.map((item, i) => {
+    if (item.data) {
+      return (
+        <div key={i} className={styles.infoItem}>
         <span className={styles.itemDescription}>{item.name}:</span>
         <span className={styles.itemData}>{item.data}</span>
       </div>
-    ))
+      )
+    }
+  }) 
   
   return (
     <div className={styles.orgWrapper}>
