@@ -24,28 +24,29 @@ const Content = (props: any) => {
     {component: <OrganizationsContainer />, path: `/${props.userName}/orgs`},
   ]
 
+
   const makeContent = () => pagesArray.map((item, i) => (
     <Route key={i} path={`${item.path}`} element={item.component} />
   ))
 
-  
-  return !props.isUserFound ? <></> : (
+
+  return !props.userName ? <>hhhh</> : (
     <>
-      <ProfileContainer />
+      <Routes>
+        <Route path={`/${props.userName}/*`} element={<ProfileContainer />} />
+      </Routes>
       <div className={styles.contentWrapper}>
         <div>
           <NavbarContainer setActiveButton={props.setActiveButton} />
         </div>
         <div className={styles.contentInner}>
-          {
-          !props.activeButton ? <></> : 
             <Routes>
                 {makeContent()}
             </Routes>
-          }
         </div>
       </div>
     </>
+
   )
 
 

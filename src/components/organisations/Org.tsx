@@ -54,7 +54,7 @@ const Org = (props: any) => {
   return (
     <div className={styles.orgWrapper}>
       <div className={styles.avatar}>
-        <Avatar radius={'70px'} url={props.avatarUrl} />
+        <Avatar radius={'80px'} url={props.avatarUrl} />
       </div>
       <div className={styles.orgInfo}>
         {makeOrgsInfo()}
