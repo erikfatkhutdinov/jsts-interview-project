@@ -68,7 +68,7 @@ export const setErrorCode = (errorCode: number) => ({type: SET_ERROR_CODE, error
 export const getData = (userName: string) => async (dispatch: any) => {
     dispatch (toggleIsFetchingData(true))
     try {
-      const response = await getUserData(userName)
+      const response: any = await getUserData(userName)
 
         if (response.user.login) {
 
