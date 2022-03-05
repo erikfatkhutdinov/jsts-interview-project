@@ -1,24 +1,10 @@
 import React from "react";
-import {makeStyles} from "@material-ui/styles";
 import Repository from "./Repository";
 
-const useStyles = makeStyles({
-  repositoriesWrapper: {
-  },
-  reposContent: {}
-})
 
 const Repositories = (props: any) => {
 
-  const styles = useStyles()
-
-
-  
-
-  const makeRepositories = props.repos.map((item: any, i:number) => {
-
-    
-   
+  return props.repos.map((item: any, i:number) => {
     const getTime = () => {
       let seconds, minutes, hours, days, years = 0
 
@@ -65,13 +51,13 @@ const Repositories = (props: any) => {
 
     const setLastUpdateStirng = (times: any) => Object.entries(times).map((timesItem, i) => {
         const outPutArr = Object.entries(timeVariants).map((variantsItem, e) => {
-          if (!((timesItem[0] === variantsItem[0]) && (Number(timesItem[1]) < variantsItem[1].maxCount))) return null
+          if (!((timesItem[0] === variantsItem[0]) 
+          && (Number(timesItem[1]) < variantsItem[1].maxCount))) return null
 
           return {
             count: Number(timesItem[1]),
             timeWord: timesItem[1] === 1 ? variantsItem[1].timeWord[0] : variantsItem[1].timeWord[1]
           }
-          
         }).filter(item => item?.count !== 0 && item !== null)
 
         if (!outPutArr.length) return null
@@ -87,11 +73,6 @@ const Repositories = (props: any) => {
       visibility={item.visibility}
       key={i} />
   })
-  
-
-  return (
-    <div className={styles.repositoriesWrapper}>{makeRepositories}</div>
-  )
 }
 
 export default Repositories

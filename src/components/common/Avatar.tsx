@@ -1,6 +1,5 @@
 import React from "react";
 import {makeStyles} from "@material-ui/styles";
-import userPhoto from '../../assets/images/user-photo.png'
 
 const useStyles = makeStyles({
   avatar: {
@@ -18,22 +17,17 @@ const useStyles = makeStyles({
 })
 
 const Avatar = (props: any) => {
-
-  // backgroundImage: `url(${props.url})`,
-
   const propsStyles = {
-    backgroundImage: `url(${userPhoto})`,
+    backgroundImage: `url(${props.url})`,
     height: props.radius,
     width: props.radius
   }
 
   const styles = useStyles()
-
   return (
     <div className={styles.avatarWrapper}>
       <div style={propsStyles} className={styles.avatar}></div>
     </div>
-    
   )
 }
 export default Avatar

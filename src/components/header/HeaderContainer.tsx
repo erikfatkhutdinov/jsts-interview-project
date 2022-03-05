@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {useLocation} from "react-router-dom";
@@ -8,28 +8,26 @@ import { setChapter } from "../../redux/user-info-reducer";
 import {setUserName} from "../../redux/user-info-reducer";
 import { useNavigate } from "react-router-dom";
 
-
 const HeaderContainer = (props: any) => {
   const location = useLocation().pathname
   const navigate = useNavigate();
-  const path = useState(location.slice(1).split('/'))[0]
+  const path = location.slice(1).split('/')
+
+  
   
   const validateInput = (input: string) => {
-    const text: string = input.trim()
-    let output: string = text
+    let output: string = input.trim()
     return output
   }
-
 
   const updateInput = (inputText: string) => {
     props.updateInputText(validateInput(inputText))
   }
 
   const getUserFromPath = () => {
-    if (!(props.inputText.length || props.userName.length)) {
-      if (path[0]?.length) props.searchUser(path[0])
-      if (path[1]?.length) props.setChapter(path[1])
-    }
+    if (props.inputText.length || (path[0] === props.userName)) return 
+    if (path[0]?.length) props.searchUser(path[0])
+    if (path[1]?.length) props.setChapter(path[1])
   }
   getUserFromPath()
   
@@ -43,17 +41,14 @@ const HeaderContainer = (props: any) => {
     navigate(`/${validateInput(inputText)}`)
   }
 
-  return <Header {...props} onEnter={onEnter} search={search} updateInput={updateInput} path={path} />
+  return <Header {...props} onEnter={onEnter} search={search} updateInput={updateInput} />
 }
 
 const mapStateToProps = (state: any) => ({
   inputText: state.header.inputText,
-  userName: state.header.userName,
-  userInfo: state.userInfo.userData.login,
-  chapter: state.header.chapter
+  chapter: state.header.chapter,
+  userName: state.userInfo.userName
 })
-
-
 
 export default compose (
   connect (mapStateToProps, {updateInputText, searchUser, setChapter, setUserName})

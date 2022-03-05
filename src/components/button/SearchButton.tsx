@@ -38,8 +38,6 @@ const SearchButton = (props: any) => {
         className={styles.navlinkSlyles}
        >search</NavLink>
     </button>
-  
   ) 
 }
-
 export default SearchButton

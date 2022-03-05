@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import Organizations from "./Organizations";
 
 const OrganizationsContainer = (props: any) => {
-
   return <Organizations {...props} />
 }
 

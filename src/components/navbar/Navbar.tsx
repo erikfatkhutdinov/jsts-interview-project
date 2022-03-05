@@ -39,7 +39,6 @@ const useStyles = makeStyles({
 })
 
 const Navbar = (props: any) => {
-
   const styles = useStyles()
 
   const makeNavbarItems = props.navbarItems.map((item: any, i: number) => {

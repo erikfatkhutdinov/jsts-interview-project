@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import Profile from "./Profile";
 
 const ProfileContainer = (props: any) => {
-
   const date: any = new Date(props.created_at)
   const createdAt: string = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 
@@ -27,10 +26,8 @@ const mapStateToProps = (state: any) => {
     html_url: user.html_url,
     created_at: user.created_at
   }
-
 }
 
 export default compose (
   connect (mapStateToProps, {}),
-
 ) (ProfileContainer)

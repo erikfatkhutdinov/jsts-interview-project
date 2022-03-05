@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
 import Avatar from "../common/Avatar";
-import userPhoto from '../../assets/images/user-photo.png'
 
 const useStyles = makeStyles({
   orgWrapper: {
@@ -13,8 +12,6 @@ const useStyles = makeStyles({
   avatar: {
     marginRight: '10px',
   },
-  orgInfo: {},
-  infoItem: {},
   itemDescription: {
     marginRight: '10px',
     color: '#aaa',
@@ -41,7 +38,7 @@ const Org = (props: any) => {
   const makeOrgsInfo = () => orgInfo.map((item, i) => {
     if (item.data) {
       return (
-        <div key={i} className={styles.infoItem}>
+        <div key={i}>
         <span className={styles.itemDescription}>{item.name}:</span>
         <span className={styles.itemData}>{item.data}</span>
       </div>
@@ -54,9 +51,9 @@ const Org = (props: any) => {
       <div className={styles.avatar}>
         <Avatar radius={'80px'}  url={props.avatarUrl} />
       </div>
-      <div className={styles.orgInfo}>
+      <div>
         {makeOrgsInfo()}
-        <div className={styles.infoItem}>
+        <div>
           <span className={styles.itemDescription}>github:</span>
           <span className={styles.itemData}>
             <a className={styles.link} target="_blank" rel="noreferrer" href={props.url}>

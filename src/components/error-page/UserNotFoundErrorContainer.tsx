@@ -8,7 +8,7 @@ const UserNotFoundErrorContainer = (props: any) => {
 }
 
 const mapStateToProps = (state: any) => ({
-  userName: state.header.userName
+  userName: state.userInfo.userName
 })
 
 export default compose (

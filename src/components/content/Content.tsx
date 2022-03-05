@@ -4,8 +4,6 @@ import ProfileContainer from "../profile/ProfileContainer";
 import NavbarContainer from "../navbar/NavbarContainer";
 
 const useStyles = makeStyles({
-  contentWrapper: {
-  },
   contentInner: {
     width: '100%',
     borderTop: '1px solid #ccc',
@@ -19,8 +17,8 @@ const Content = (props: any) => {
   return !props.userName ? <></> : (
     <>
       <ProfileContainer />
-      <div className={styles.contentWrapper}>
-          <NavbarContainer setActiveButton={props.setActiveButton} />
+      <div>
+        <NavbarContainer setActiveButton={props.setActiveButton} />
         <div className={styles.contentInner}>
             {props.pagesArray.filter((t: any) => t.path === props.chapter)[0]?.component}
         </div>

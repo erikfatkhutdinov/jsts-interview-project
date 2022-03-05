@@ -59,13 +59,11 @@ const Profile = (props: any) => {
         <Avatar radius={'200px'} url={props.avatar_url} />
         <div className={styles.login}>{props.login}</div>
       </div>
-
       <div>
         <div className={styles.name}>{props.name}</div>
         <div className={styles.additionalInfo}>
           {additionalInfo}
         </div>
-
 
         <div className={styles.additionalInfoItem}>
           <span className={styles.description}>Account was created on:</span>
@@ -74,7 +72,11 @@ const Profile = (props: any) => {
 
         <div className={styles.additionalInfoItem}>
           <span className={styles.description}>github:</span>
-          <a href={props.html_url} target="_blank" rel="noreferrer" className={`${styles.linkToGithub} ${styles.userInfo}`}>{props.html_url}</a>
+          <a href={props.html_url} 
+            target="_blank" 
+            rel="noreferrer" 
+            className={`${styles.linkToGithub} ${styles.userInfo}`}
+            >{props.html_url}</a>
         </div>
       </div>
     </div>

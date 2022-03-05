@@ -1,20 +1,9 @@
 import React from "react";
-import {makeStyles} from "@material-ui/styles";
+import DataNotFound from "../error-page/DataNotFound";
 import Org from "./Org";
 
-const useStyles = makeStyles({
-  userInfoWrapper: {
-  },
-  notFound: {
-    padding: '20px',
-    fontSize: '40px'
-  }
-})
-
 const Organizations = (props: any) => {
-  const styles = useStyles()
-  
-  const makeOrgs = props.orgs.map((item: any, i: number) => (
+  const makeOrgs = () => props.orgs.map((item: any, i: number) => (
      <Org key={i} 
       avatarUrl={item.avatar_url} 
       description={item.description} 
@@ -22,12 +11,7 @@ const Organizations = (props: any) => {
       url={item.url.replace('api.','')} 
     />
   ))
-    
-  return (
-    <div className={styles.userInfoWrapper}>
-      {props.orgs.length ? makeOrgs : <div className={styles.notFound}>Organizations not found</div>}
-    </div>
-  )
+  return props.orgs.length ? makeOrgs() : <DataNotFound notFoundData={'Organizations'} />
 }
 
 export default Organizations

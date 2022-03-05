@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/styles";
-import { count } from "console";
 import React from "react";
 
 const useStyles = makeStyles({
@@ -30,12 +29,10 @@ const useStyles = makeStyles({
     border: '1px solid #222',
     borderRadius: '15px'
   },
-  description: {},
   reposInfoWrapper: {
     display: 'flex',
     alignItems: 'center'
   },
-  reposInfo: {},
   reposInfoDescription: {},
   reposInfoData: {
     marginRight: '15px'
@@ -47,7 +44,6 @@ const useStyles = makeStyles({
 })
 
 const Repository = (props: any) => {
-
   const styles = useStyles()
   const repInfo = [props.language, props.lecense]
   const updated = props.updated[0]
@@ -67,5 +63,4 @@ const Repository = (props: any) => {
     </a>
   )
 }
-
 export default Repository

@@ -1,7 +1,6 @@
 import React from "react";
 import {makeStyles} from "@material-ui/styles";
 import SearchButton from "../button/SearchButton";
-import { Navigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   inputWrapper: {
@@ -16,8 +15,6 @@ const useStyles = makeStyles({
     padding: '0px 7px',
   },
 })
-
-
 
 const Header = (props: any) => {
   const styles = useStyles()
@@ -55,8 +52,6 @@ const Header = (props: any) => {
           placeholder={'username'}
         />
         <SearchButton userName={props.inputText} onButtonClick={onButtonClick} />
-
-
     </div>
   )
 }

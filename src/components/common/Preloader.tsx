@@ -16,10 +16,9 @@ const Preloader = () => {
 
   return (
     <div className={styles.preloaderWrapper}>
-      <img src={preloader} />
+      <img src={preloader} alt={'Loading...'} />
     </div>
   )
-
 }
 
 export default Preloader

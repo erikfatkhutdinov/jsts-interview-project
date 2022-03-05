@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, ReactElement } from "react";
+import React from "react";
 import {makeStyles} from "@material-ui/styles";
 
 const useStyles = makeStyles({
@@ -7,14 +7,12 @@ const useStyles = makeStyles({
     width: '100%',
     margin: '0 auto',
     backgroundColor: '#fff',
-    color: '#111',
+    color: '#222',
     padding: '0 10px'
   }
 })
 
-
 function Container(props: any) {
-
   const styles = useStyles()
   return (
     <div className={styles.container}>
