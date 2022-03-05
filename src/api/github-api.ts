@@ -6,7 +6,7 @@ import ky from 'ky';
 const BASE_URL = 'https://api.github.com';
 
 const getRepos = async (username: string) => {
-  const url = `${BASE_URL}/users/${username}/repos?per_page=250`
+  const url: string = `${BASE_URL}/users/${username}/repos?per_page=250`
   return await ky.get(url).json()
 }
 

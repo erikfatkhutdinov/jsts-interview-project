@@ -20,7 +20,7 @@ const Content = (props: any) => {
       <div>
         <NavbarContainer setActiveButton={props.setActiveButton} />
         <div className={styles.contentInner}>
-            {props.pagesArray.filter((t: any) => t.path === props.chapter)[0]?.component}
+            {props.chapter ? props.pagesArray.filter((t: any) => t.path === props.chapter)[0]?.component : null}
         </div>
       </div>
     </>

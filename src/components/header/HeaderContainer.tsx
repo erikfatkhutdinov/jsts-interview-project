@@ -34,6 +34,7 @@ const HeaderContainer = (props: any) => {
   const search = (userName: string = '') => {
     props.setUserName(validateInput(userName))
     props.searchUser(validateInput(userName))
+    props.setChapter('')
   }
 
   const onEnter = (inputText: string) => {
