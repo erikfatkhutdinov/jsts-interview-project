@@ -26,7 +26,7 @@ const Header = (props: any) => {
 
   const updateInputText = () => {
     const text: string = inputValue.current.value
-    props.updateInputText(text)
+    props.updateInput(text)
   }
 
   const onButtonClick = (e: any) => {
@@ -34,13 +34,12 @@ const Header = (props: any) => {
       e.preventDefault()
       return
     }
-    props.searchUser(props.inputText)
+    props.search(props.inputText)
   }
 
   const onKeyDown = (e: any) => {
     if (e.key === 'Enter') {
-      props.navigate(`/${props.inputText}`)
-      props.searchUser(props.inputText)
+      props.onEnter(props.inputText)
     }
   }
   

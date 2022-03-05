@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
 import Avatar from "../common/Avatar";
+import userPhoto from '../../assets/images/user-photo.png'
 
 const useStyles = makeStyles({
   orgWrapper: {
@@ -11,9 +12,6 @@ const useStyles = makeStyles({
   },
   avatar: {
     marginRight: '10px',
-    border: '1px solid #000',
-    borderRadius: '50%',
-    padding: '3px'
   },
   orgInfo: {},
   infoItem: {},
@@ -54,7 +52,7 @@ const Org = (props: any) => {
   return (
     <div className={styles.orgWrapper}>
       <div className={styles.avatar}>
-        <Avatar radius={'80px'} url={props.avatarUrl} />
+        <Avatar radius={'80px'}  url={props.avatarUrl} />
       </div>
       <div className={styles.orgInfo}>
         {makeOrgsInfo()}

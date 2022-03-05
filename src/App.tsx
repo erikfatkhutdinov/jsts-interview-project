@@ -3,6 +3,7 @@ import HeaderContainer from "./components/header/HeaderContainer";
 import ContentContainer from "./components/content/ContentContainer"
 import {makeStyles} from "@material-ui/styles";
 import Container from "./components/Container/Container";
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles({
   app: {
@@ -12,17 +13,16 @@ const useStyles = makeStyles({
   }
 })
 
-function App() {
+function App(props: any) {
   const classes = useStyles()
-
-
-
+  
   return (
     <div className={classes.app}>
       <Container component={() => <HeaderContainer />} />
-      <ContentContainer />
+       <ContentContainer />
     </div>
   );
 }
 
-export default App;
+export default App
+

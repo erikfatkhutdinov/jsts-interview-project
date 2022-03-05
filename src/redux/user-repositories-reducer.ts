@@ -46,13 +46,13 @@ export const getUserRepos = (userName: string) => async (dispatch: any) => {
 
   try {
     const response: any = await getRepos(userName)
+    dispatch(setErrorCode(0))
 
     if (response.length) {
-
       dispatch(setUserRepos(response))
       dispatch (toggleIsFetchingRepos(false))
     }
   } catch (error: any) {
-    dispatch (setErrorCode(error.response.status))
+    dispatch (setErrorCode(error.response?.status))
   }
 }

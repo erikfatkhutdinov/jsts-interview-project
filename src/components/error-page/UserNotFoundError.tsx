@@ -10,21 +10,10 @@ const useStyles = makeStyles({
 })
 
 const UserNotFoundError = (props: any) => {
-
   const styles = useStyles()
 
-  const getErrorText = () => {
-    switch (props.userDataErrorCode) {
-      case 404:
-        return `User ${props.userName} not found`
-      default:
-        return ''
-    }
-  }
-
-
   return (
-    <div className={styles.error}>{getErrorText()}</div>
+    <div className={styles.error}>User {props.userName} not found</div>
   )
 }
 

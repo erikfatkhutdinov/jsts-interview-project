@@ -42,43 +42,28 @@ const Navbar = (props: any) => {
 
   const styles = useStyles()
 
-  const navbarItems = [
-    {path: '/repos', buttonName: 'Repositories', id: 'repos'},
-    {path: '/orgs', buttonName: 'Organisations', id: 'orgs'},
-  ]
+  const makeNavbarItems = props.navbarItems.map((item: any, i: number) => {
+    const path = `/${props.userName}/${item.path}`
 
-  
+    const onSetChapter = () => {
+      props.setChapter(item.path)
+    }
 
-  const makeNavbarItems = navbarItems.map((item, i) => {
-      const path = `/${props.userName}${item.path}`
-
-      const setActiveButton = () => {
-        props.setActiveButton(item.id)
-      }
-
-      return (
-      <div key={i} className={styles.navbarItem}>
-        <NavLink 
-        onClick={setActiveButton}
-        className={
-          (navData) => navData.isActive 
-            ? `${styles.navbarStyles} ${styles.active}` 
-            : styles.navbarStyles
-          } 
-        to={path}
-        >
-          <span className={styles.navlinkInner}>{item.buttonName}</span></NavLink>
-      </div>
-    )
-    })
-
-
- 
-  return (
-    <div className={styles.navbar}>
-      {makeNavbarItems}
+    return (
+    <div key={i} className={styles.navbarItem}>
+      <NavLink 
+      onClick={onSetChapter}
+      className={
+        (navData) => navData.isActive 
+          ? `${styles.navbarStyles} ${styles.active}` 
+          : styles.navbarStyles
+        } 
+      to={path}
+      ><span className={styles.navlinkInner}>{item.buttonName}</span></NavLink>
     </div>
-  )
-}
+    )
+  })
 
+  return <div className={styles.navbar}>{makeNavbarItems}</div>
+}
 export default Navbar

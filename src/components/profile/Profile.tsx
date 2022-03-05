@@ -11,9 +11,6 @@ const useStyles = makeStyles({
     textAlign: 'center',
     marginRight: '16px'
   },
-  info: {
-
-  },
   login: {
     fontSize: '15px',
     marginTop: '10px',
@@ -41,9 +38,7 @@ const useStyles = makeStyles({
 })
 
 const Profile = (props: any) => {
-
   const styles = useStyles()
-
 
   const additionalInfo = props.additionalInfo.map((item: any, i: number) => {
     const userInfoItem: any = Object.values(item.data)[0]
@@ -65,7 +60,7 @@ const Profile = (props: any) => {
         <div className={styles.login}>{props.login}</div>
       </div>
 
-      <div className={styles.info}>
+      <div>
         <div className={styles.name}>{props.name}</div>
         <div className={styles.additionalInfo}>
           {additionalInfo}
@@ -78,11 +73,10 @@ const Profile = (props: any) => {
         </div>
 
         <div className={styles.additionalInfoItem}>
-          <span className={styles.description}>github</span>
+          <span className={styles.description}>github:</span>
           <a href={props.html_url} target="_blank" rel="noreferrer" className={`${styles.linkToGithub} ${styles.userInfo}`}>{props.html_url}</a>
         </div>
       </div>
-
     </div>
   )
 }

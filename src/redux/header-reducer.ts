@@ -1,11 +1,10 @@
 import {getData} from "./user-info-reducer";
 import {getUserRepos} from "./user-repositories-reducer"
-
+import { setUserName } from "./user-info-reducer";
 
 
 const UPDATE_INPUT_TEXT = 'UPDATE_INPUT_TEXT'
 const SET_USER_NAME = 'SET_USER_NAME'
-const SET_CHAPTER = 'SET_CHAPTER'
 
 interface State {
       inputText: string,
@@ -25,7 +24,6 @@ const headerReducer = (state: object = initialState, action: any) => {
                   return {...state, inputText: action.inputText}
             case SET_USER_NAME:
                   return {...state, userName: action.name}
-
             default:
                   return state
       }
@@ -34,8 +32,7 @@ const headerReducer = (state: object = initialState, action: any) => {
 export default headerReducer
 
 export const updateInputText = (inputText: string) => ({type: UPDATE_INPUT_TEXT, inputText})
-export const setUserName = (name: string) => ({type: SET_USER_NAME, name})
-export const setChapter = (chapter: string) => ({type: SET_CHAPTER, chapter})
+//export const setUserName = (name: string) => ({type: SET_USER_NAME, name})
 
 
 

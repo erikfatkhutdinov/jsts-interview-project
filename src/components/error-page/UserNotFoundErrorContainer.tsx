@@ -8,7 +8,6 @@ const UserNotFoundErrorContainer = (props: any) => {
 }
 
 const mapStateToProps = (state: any) => ({
-  userDataErrorCode: state.userInfo.errorCode,
   userName: state.header.userName
 })
 

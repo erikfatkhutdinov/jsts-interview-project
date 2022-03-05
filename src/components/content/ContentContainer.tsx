@@ -6,35 +6,42 @@ import Preloader from "../common/Preloader";
 import Container from "../Container/Container";
 import UserNotFoundErrorContainer from "../error-page/UserNotFoundErrorContainer";
 import { Route, Routes } from "react-router-dom";
+import RepositoriesContainer from "../repositories/RepositoriesContainer";
+import OrganizationsContainer from '../organisations/OrganizationsContainer'
 
 const ContentContainer = (props: any) => {
-
-  const [activeButton, setActiveButton] = useState(null)
-
+  const pagesArray = [
+    {component: <RepositoriesContainer />, path: `repos`},
+    {component: <OrganizationsContainer />, path: `orgs`},
+  ]
 
   const makeContent = () => {
-    if (props.errorCode === 4) return <UserNotFoundErrorContainer />
-    return props.isFetching 
-    ? <Preloader /> 
-    : <Content
-        activeButton={activeButton} 
-        setActiveButton={setActiveButton} 
-        {...props} /> 
-        } 
-  
+    
+    if (props.isError) return <UserNotFoundErrorContainer />
+    if (props.isFetching) return <Preloader />
+    if (!props.userName) return <></>
 
-  return(
-    <Container 
-    component={() => makeContent()}/>
-  ) 
+        return (
+          <Routes>
+            <Route path={`/${props.userName}/*`} element={
+              <Content
+                pagesArray={pagesArray}
+                {...props} /> 
+            }/>
+          </Routes> 
+        )
+  }
+  return(<Container component={() => makeContent()}/>)
 }
 
-const mapStateToProps = (state: any) => ({
-  isFetching: state.userRepos.isFetchingRepos && state.userInfo.isFetchingData,
-  userName: state.header.userName,
-  errorCode: +state.userInfo.errorCode.toString()[0],
-  chapter: state.header.chapter
-})
+const mapStateToProps = (state: any) => {
+  return {
+    isFetching: state.userInfo.isFetchingData,
+    userName: state.userInfo.userName,
+    isError: state.userInfo.isError,
+    chapter: state.userInfo.chapter
+  }
+}
 
 export default compose (
   connect (mapStateToProps, {})
